@@ -56,23 +56,23 @@ namespace ApexTest.Controllers
             return db.Users;
         }
 
-        // DELETE: api/Account/5
-        [ResponseType(typeof (IdentityUser))]
-        [Authorize(Roles = "Admin")]
-        public IHttpActionResult DeleteUser(String id)
-        {
-            var user = db.Users.Find(id);
-            if (user == null)
-            {
-                return BadRequest("User with id " + id + " does not exist.");
-            }
-
-            db.Users.Remove(user);
-
-            db.SaveChanges();
-
-            return Ok(user);
-        }
+//        // DELETE: api/Account/5
+//        [ResponseType(typeof (IdentityUser))]
+//        [Authorize(Roles = "Admin")]
+//        public IHttpActionResult DeleteUser(String id)
+//        {
+//            var user = db.Users.Find(id);
+//            if (user == null)
+//            {
+//                return BadRequest("User with id " + id + " does not exist.");
+//            }
+//
+//            db.Users.Remove(user);
+//
+//            db.SaveChanges();
+//
+//            return Ok(user);
+//        }
 
         //        // GET api/Account/UserInfo
         //        [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
