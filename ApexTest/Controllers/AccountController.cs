@@ -56,7 +56,7 @@ namespace ApexTest.Controllers
             return db.Users;
         }
 
-        // DELETE: api/Patients/5
+        // DELETE: api/Account/5
         [ResponseType(typeof (IdentityUser))]
         [Route("api/Account/{id}")]
         [Authorize(Roles = "Admin")]
