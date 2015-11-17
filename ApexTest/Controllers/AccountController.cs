@@ -47,20 +47,27 @@ namespace ApexTest.Controllers
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
-//        // GET api/Account/UserInfo
-//        [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
-//        [Route("UserInfo")]
-//        public UserInfoViewModel GetUserInfo()
-//        {
-//            ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
-//
-//            return new UserInfoViewModel
-//            {
-//                Email = User.Identity.GetUserName(),
-//                HasRegistered = externalLogin == null,
-//                LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
-//            };
-//        }
+        // GET: api/Account/Users
+        [Route("Users")]
+        public IQueryable<IdentityUser> GetUsers()
+        {
+            return db.Users;
+        }
+
+        //        // GET api/Account/UserInfo
+        //        [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        //        [Route("UserInfo")]
+        //        public UserInfoViewModel GetUserInfo()
+        //        {
+        //            ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
+        //
+        //            return new UserInfoViewModel
+        //            {
+        //                Email = User.Identity.GetUserName(),
+        //                HasRegistered = externalLogin == null,
+        //                LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
+        //            };
+        //        }
 
         // POST api/Account/Logout
         [Route("Logout")]
