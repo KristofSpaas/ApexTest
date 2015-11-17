@@ -28,7 +28,7 @@ namespace ApexTest.Controllers
                 return BadRequest("Patient with id " + patientId + " does not exist.");
             }
 
-            IQueryable<Temperature> temperaturesByPatientId = db.Temperatures.Where(r => r.PatientId == patientId);
+            List<Temperature> temperaturesByPatientId = db.Temperatures.Where(r => r.PatientId == patientId).ToList();
 
             return Ok(temperaturesByPatientId);
         }

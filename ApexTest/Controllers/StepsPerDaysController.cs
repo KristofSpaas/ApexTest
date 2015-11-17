@@ -28,7 +28,7 @@ namespace ApexTest.Controllers
                 return BadRequest("Patient with id " + patientId + " does not exist.");
             }
 
-            IQueryable<StepsPerDay> stepsPerDaysByPatientId = db.StepsPerDays.Where(r => r.PatientId == patientId);
+            List<StepsPerDay> stepsPerDaysByPatientId = db.StepsPerDays.Where(r => r.PatientId == patientId).ToList();
 
             return Ok(stepsPerDaysByPatientId);
         }

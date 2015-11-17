@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -40,7 +41,7 @@ namespace ApexTest.Controllers
                 return BadRequest("Patient with id " + patientId + " does not exist.");
             }
 
-            IQueryable<Advice> advicesByPatientId = db.Advices.Where(r => r.PatientId == patientId);
+            List<Advice> advicesByPatientId = db.Advices.Where(r => r.PatientId == patientId).ToList();
 
             return Ok(advicesByPatientId);
         }

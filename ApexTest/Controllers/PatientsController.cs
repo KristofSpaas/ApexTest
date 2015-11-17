@@ -18,9 +18,9 @@ namespace ApexTest.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Patients
-        public IQueryable<Patient> GetPatients()
+        public List<Patient> GetPatients()
         {
-            return db.Patients;
+            return db.Patients.ToList();
         }
 
         // GET: api/Patients/Doctor/5
@@ -33,7 +33,7 @@ namespace ApexTest.Controllers
                 return BadRequest("Doctor with id " + doctorId + " does not exist.");
             }
 
-            IQueryable<Patient> patientsByDoctorId = db.Patients.Where(r => r.DoctorId == doctorId);
+            List<Patient> patientsByDoctorId = db.Patients.Where(r => r.DoctorId == doctorId).ToList();
 
             return Ok(patientsByDoctorId);
         }

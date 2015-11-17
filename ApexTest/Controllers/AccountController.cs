@@ -51,9 +51,9 @@ namespace ApexTest.Controllers
         // GET: api/Account/Users
         [Route("Users")]
         [Authorize(Roles = "Admin")]
-        public IQueryable<IdentityUser> GetUsers()
+        public List<ApplicationUser> GetUsers()
         {
-            return db.Users;
+            return db.Users.ToList();
         }
 
 //        // DELETE: api/Account/5

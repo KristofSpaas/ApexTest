@@ -18,9 +18,9 @@ namespace ApexTest.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Doctors
-        public IQueryable<Doctor> GetDoctors()
+        public List<Doctor> GetDoctors()
         {
-            return db.Doctors;
+            return db.Doctors.ToList();
         }
 
         // GET: api/Doctors/5
