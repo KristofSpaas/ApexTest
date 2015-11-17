@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Description;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -53,6 +54,25 @@ namespace ApexTest.Controllers
         public IQueryable<IdentityUser> GetUsers()
         {
             return db.Users;
+        }
+
+        // DELETE: api/Patients/5
+        [ResponseType(typeof (IdentityUser))]
+        [Route("api/Account/{id}")]
+        [Authorize(Roles = "Admin")]
+        public IHttpActionResult DeleteUser(String id)
+        {
+            var user = db.Users.Find(id);
+            if (user == null)
+            {
+                return BadRequest("User with id " + id + " does not exist.");
+            }
+
+            db.Users.Remove(user);
+
+            db.SaveChanges();
+
+            return Ok(user);
         }
 
         //        // GET api/Account/UserInfo
