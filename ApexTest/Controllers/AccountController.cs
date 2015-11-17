@@ -58,7 +58,6 @@ namespace ApexTest.Controllers
 
         // DELETE: api/Account/5
         [ResponseType(typeof (IdentityUser))]
-        [Route("api/Account/{id}")]
         [Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteUser(int id)
         {
