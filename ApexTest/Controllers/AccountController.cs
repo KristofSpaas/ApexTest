@@ -60,7 +60,7 @@ namespace ApexTest.Controllers
         [ResponseType(typeof (IdentityUser))]
         [Route("api/Account/{id}")]
         [Authorize(Roles = "Admin")]
-        public IHttpActionResult DeleteUser(String id)
+        public IHttpActionResult DeleteUser(int id)
         {
             var user = db.Users.Find(id);
             if (user == null)
