@@ -49,6 +49,7 @@ namespace ApexTest.Controllers
 
         // GET: api/Account/Users
         [Route("Users")]
+        [Authorize(Roles = "Admin")]
         public IQueryable<IdentityUser> GetUsers()
         {
             return db.Users;
