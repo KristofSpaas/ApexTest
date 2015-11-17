@@ -17,6 +17,12 @@ namespace ApexTest.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        // GET: api/Patients
+        public IQueryable<Patient> GetPatients()
+        {
+            return db.Patients;
+        }
+
         // GET: api/Patients/Doctor/5
         [Route("api/Patients/Doctor/{doctorId}")]
         public IHttpActionResult GetPatientsByDoctorId(int doctorId)
